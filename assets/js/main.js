@@ -362,27 +362,29 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('contactName').value;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+
             const formData = new FormData(contactForm);
+            const encodedData = new URLSearchParams(formData).toString();
 
             fetch('/', {
                 method: 'POST',
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
+                body: encodedData
             })
-            .then(() => {
+            .then(res => {
+                if (submitBtn) submitBtn.disabled = false;
                 const message = currentLang === 'ta'
-                    ? `நன்றி ${name}! உங்கள் மடல் பெறப்பட்டது. ரம்யா விரைவில் பதிலளிப்பார்.`
-                    : `Thank you ${name}! Your message has been received. Ramya will respond soon.`;
+                    ? `நன்றி ${name}! உங்கள் மடல் பெறப்பட்டது. விரைவில் பதிலளிப்போம்.`
+                    : `Thank you ${name}! Your message has been sent successfully.`;
                 showToast(message, '📬');
                 contactForm.reset();
             })
-            .catch((error) => {
-                console.error('Form submission error:', error);
-                const message = currentLang === 'ta'
-                    ? `நன்றி ${name}! உங்கள் மடல் அனுப்பப்பட்டது.`
-                    : `Thank you ${name}! Your message has been sent.`;
-                showToast(message, '📬');
-                contactForm.reset();
+            .catch(err => {
+                if (submitBtn) submitBtn.disabled = false;
+                console.error('Form submit error:', err);
+                contactForm.submit();
             });
         });
     }
