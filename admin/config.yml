@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "assets/images"
+
+collections:
+  - name: "writings"
+    label: "Writings & Articles"
+    folder: "content/writings"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["essays", "poetry", "notes"] }
+      - { label: "Language", name: "lang", widget: "select", options: ["en", "ta", "both"] }
+      - { label: "Title (English)", name: "title_en", widget: "string" }
+      - { label: "Title (தமிழ்)", name: "title_ta", widget: "string" }
+      - { label: "Excerpt (English)", name: "excerpt_en", widget: "text" }
+      - { label: "Excerpt (தமிழ்)", name: "excerpt_ta", widget: "text" }
+      - { label: "Reading Time (EN)", name: "readTime_en", widget: "string", default: "4 min read" }
+      - { label: "Reading Time (தமிழ்)", name: "readTime_ta", widget: "string", default: "4 நிமிட வாசிப்பு" }
+      - { label: "Publish Date", name: "date", widget: "string", default: "September 2026" }
+      - { label: "Content (English)", name: "content_en", widget: "markdown" }
+      - { label: "Content (தமிழ்)", name: "content_ta", widget: "markdown" }
+
+  - name: "books"
+    label: "Published Books"
+    folder: "content/books"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Book ID", name: "id", widget: "string" }
+      - { label: "Title (English)", name: "title_en", widget: "string" }
+      - { label: "Title (தமிழ்)", name: "title_ta", widget: "string" }
+      - { label: "Subtitle (English)", name: "subtitle_en", widget: "string" }
+      - { label: "Subtitle (தமிழ்)", name: "subtitle_ta", widget: "string" }
+      - { label: "Cover Image", name: "coverImage", widget: "image" }
+      - { label: "Status Badge (EN)", name: "tag_en", widget: "string" }
+      - { label: "Status Badge (தமிழ்)", name: "tag_ta", widget: "string" }
+      - { label: "Description (English)", name: "description_en", widget: "text" }
+      - { label: "Description (தமிழ்)", name: "description_ta", widget: "text" }
+      - { label: "Page Count", name: "pages", widget: "string" }
+      - { label: "ISBN", name: "isbn", widget: "string" }
+      - { label: "Sample Text / Excerpt (EN)", name: "sampleText_en", widget: "text" }
+      - { label: "Sample Text / Excerpt (தமிழ்)", name: "sampleText_ta", widget: "text" }
+      - { label: "Amazon Purchase Link", name: "amazonLink", widget: "string" }

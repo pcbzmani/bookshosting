@@ -337,4 +337,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Initial Setup Execution ---
     setTheme(currentTheme);
     setLanguage(currentLang);
+
+    // --- Hide Page Preloader ---
+    const pagePreloader = document.getElementById('pagePreloader');
+    if (pagePreloader) {
+        setTimeout(() => {
+            pagePreloader.style.opacity = '0';
+            setTimeout(() => {
+                pagePreloader.style.display = 'none';
+            }, 500);
+        }, 400);
+    }
 });

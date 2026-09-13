@@ -26,11 +26,28 @@
     <meta property="twitter:description" content="Exploring life, emotions, and quiet thoughts in Tamil and English.">
     <meta property="twitter:image" content="assets/images/ramya-office-portrait.webp">
 
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236b4c6e'><path d='M12 3v17a7.5 7.5 0 0 1 6 3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H12zm0 0a7.5 7.5 0 0 0-6 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2a7.5 7.5 0 0 1 6-3V3z'/></svg>">
+
+    <!-- Netlify Identity Widget for Author CMS Login -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
+    <!-- Animated Book Page Preloader -->
+    <div class="preloader-overlay" id="pagePreloader">
+        <div class="book-loader-wrapper">
+            <div class="book-loader-spine"></div>
+            <div class="book-loader-page"></div>
+            <div class="book-loader-page"></div>
+            <div class="book-loader-page"></div>
+        </div>
+        <div class="preloader-title">Ramya Vindhisha</div>
+        <div class="preloader-sub" data-en="Opening pages..." data-ta="பக்கங்கள் திறக்கின்றன...">Opening pages...</div>
+    </div>
     <!-- Site Header -->
     <header class="site-header">
         <div class="logo-group">
@@ -262,6 +279,17 @@
     <!-- Scripts -->
     <script src="assets/js/content-data.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 
 </html>
