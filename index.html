@@ -32,6 +32,74 @@
     <!-- Netlify Identity Widget for Author CMS Login -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+    <!-- Inline Critical Preloader Styles (Prevents FOUC Text Flash) -->
+    <style id="preloader-critical-css">
+        .preloader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #faf8f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.4s ease;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .book-loader-wrapper {
+            position: relative;
+            width: 60px;
+            height: 45px;
+            margin-bottom: 20px;
+            perspective: 300px;
+        }
+        .book-loader-spine {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 45px;
+            background: #6b4c6e;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .book-loader-page {
+            position: absolute;
+            left: 50%;
+            top: 2px;
+            width: 28px;
+            height: 41px;
+            background: #ffffff;
+            border: 1.5px solid #6b4c6e;
+            border-radius: 0 4px 4px 0;
+            transform-origin: left center;
+            animation: flipPage 1.4s infinite ease-in-out;
+        }
+        .book-loader-page:nth-child(2) { animation-delay: 0.25s; }
+        .book-loader-page:nth-child(3) { animation-delay: 0.5s; }
+        @keyframes flipPage {
+            0% { transform: rotateY(0deg); opacity: 1; }
+            50% { transform: rotateY(-180deg); opacity: 0.8; }
+            100% { transform: rotateY(-180deg); opacity: 0; }
+        }
+        .preloader-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            color: #222026;
+            margin-bottom: 4px;
+        }
+        .preloader-sub {
+            font-size: 0.78rem;
+            color: #6b4c6e;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    </style>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
