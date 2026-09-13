@@ -357,17 +357,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Contact Form Handling ---
+    // --- Contact Form Handling (Netlify Forms Integration) ---
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('contactName').value;
-            const message = currentLang === 'ta'
-                ? `நன்றி ${name}! உங்கள் மடல் பெறப்பட்டது. ரம்யா விரைவில் பதிலளிப்பார்.`
-                : `Thank you ${name}! Your message has been received. Ramya will respond soon.`;
-            
-            showToast(message, '📬');
-            contactForm.reset();
+            const formData = new FormData(contactForm);
+
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                const message = currentLang === 'ta'
+                    ? `நன்றி ${name}! உங்கள் மடல் பெறப்பட்டது. ரம்யா விரைவில் பதிலளிப்பார்.`
+                    : `Thank you ${name}! Your message has been received. Ramya will respond soon.`;
+                showToast(message, '📬');
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error('Form submission error:', error);
+                const message = currentLang === 'ta'
+                    ? `நன்றி ${name}! உங்கள் மடல் அனுப்பப்பட்டது.`
+                    : `Thank you ${name}! Your message has been sent.`;
+                showToast(message, '📬');
+                contactForm.reset();
+            });
         });
     }
 

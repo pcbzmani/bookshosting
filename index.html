@@ -276,21 +276,24 @@
                     </div>
                 </div>
 
-                <!-- Interactive Contact Form -->
-                <form class="contact-form" id="contactForm">
+                <!-- Interactive Netlify Contact Form -->
+                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+
                     <div class="form-group">
                         <label for="contactName" data-en="Your Name" data-ta="உங்கள் பெயர்">Your Name</label>
-                        <input type="text" id="contactName" class="form-control" placeholder="Jane Doe" required>
+                        <input type="text" id="contactName" name="name" class="form-control" placeholder="Jane Doe" required>
                     </div>
 
                     <div class="form-group">
                         <label for="contactEmail" data-en="Your Email" data-ta="உங்கள் மின்னஞ்சல்">Your Email</label>
-                        <input type="email" id="contactEmail" class="form-control" placeholder="jane@example.com" required>
+                        <input type="email" id="contactEmail" name="email" class="form-control" placeholder="jane@example.com" required>
                     </div>
 
                     <div class="form-group">
                         <label for="contactSubject" data-en="Subject / Purpose" data-ta="தலைப்பு / நோக்கம்">Subject / Purpose</label>
-                        <select id="contactSubject" class="form-control">
+                        <select id="contactSubject" name="subject" class="form-control">
                             <option value="General Hello">General Reader Note / வாசகர் மடல்</option>
                             <option value="Book Inquiry">Book Inquiry / புத்தக விசாரணை</option>
                             <option value="Literary Collaboration">Literary Collaboration / இலக்கிய கூட்டணி</option>
@@ -299,7 +302,7 @@
 
                     <div class="form-group">
                         <label for="contactMessage" data-en="Message" data-ta="செய்தி">Message</label>
-                        <textarea id="contactMessage" class="form-control" placeholder="Write your message here..." required></textarea>
+                        <textarea id="contactMessage" name="message" class="form-control" placeholder="Write your message here..." required></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="Send Message ✉️" data-ta="செய்தி அனுப்பு ✉️">Send Message ✉️</button>
