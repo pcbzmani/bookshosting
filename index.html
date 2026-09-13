@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Ramya Vindhisha | Writer, Observer & Storyteller (தமிழ் & English)</title>
+    <meta name="title" content="Ramya Vindhisha | Writer, Observer & Storyteller">
+    <meta name="description"
+        content="Official bilingual literary portfolio of Ramya Vindhisha — exploring human emotions, Tamil poetry, essays, books, and everyday reflections.">
+    <meta name="keywords" content="Ramya Vindhisha, Tamil Writer, English Essays, Tamil Poetry, Ekanta Nilavu, Books, Storyteller, Observer">
+    <meta name="author" content="Ramya Vindhisha">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ramyavindhisha.com/">
+    <meta property="og:title" content="Ramya Vindhisha | Writer & Storyteller">
+    <meta property="og:description" content="Exploring life, emotions, and quiet thoughts in Tamil and English.">
+    <meta property="og:image" content="assets/images/ramya-office-portrait.webp">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Ramya Vindhisha | Writer & Storyteller">
+    <meta property="twitter:description" content="Exploring life, emotions, and quiet thoughts in Tamil and English.">
+    <meta property="twitter:image" content="assets/images/ramya-office-portrait.webp">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="logo-group">
+            <a class="logo" href="#home" id="siteLogo">Ramya Vindhisha</a>
+            <span class="logo-sub" id="logoSub" data-en="Writer" data-ta="எழுத்தாளர்">Writer</span>
+        </div>
+        
+        <nav id="siteNav">
+            <a href="#home" class="active" data-en="Home" data-ta="முகப்பு">Home</a>
+            <a href="#about" data-en="About" data-ta="என்னைப் பற்றி">About</a>
+            <a href="#writing" data-en="Writing" data-ta="எழுத்துகள்">Writing</a>
+            <a href="#books" data-en="Books" data-ta="புத்தகங்கள்">Books</a>
+            <a href="#notes" data-en="Notes" data-ta="குறிப்புகள்">Notes</a>
+            <a href="#contact" data-en="Connect" data-ta="தொடர்பு">Connect</a>
+        </nav>
+
+        <div class="controls-group">
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme (Warm Paper / Midnight Library)" aria-label="Toggle Theme">
+                <span id="themeIcon">🌙</span>
+            </button>
+
+            <div class="language-toggle">
+                <button id="enBtn" class="active" aria-label="English Language">EN</button>
+                <button id="taBtn" aria-label="Tamil Language">தமிழ்</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow" data-en="WRITER • OBSERVER • STORYTELLER" data-ta="எழுத்தாளர் • பார்வையாளர் • கதைசொல்லி">WRITER • OBSERVER • STORYTELLER</span>
+                
+                <h1 class="hero-title" data-en="Words that notice the quiet rhythm of life." data-ta="வாழ்க்கையின் அமைதியான தாளத்தைக் கவனிக்கும் வார்த்தைகள்.">
+                    Words that notice the quiet rhythm of life.
+                </h1>
+
+                <p class="hero-intro"
+                    data-en="I write in Tamil and English about people, emotions, everyday life, questions, and the subtle moments that invite us to pause and reflect."
+                    data-ta="மனிதர்கள், உணர்வுகள், அன்றாட வாழ்க்கை, கேள்விகள் மற்றும் நம்மைச் சிந்திக்க வைக்கும் சிறிய தருணங்களைப் பற்றி தமிழ் மற்றும் ஆங்கிலத்தில் எழுதுகிறேன்.">
+                    I write in Tamil and English about people, emotions, everyday life, questions, and the subtle moments that invite us to pause and reflect.
+                </p>
+
+                <div class="button-group">
+                    <a class="btn btn-primary" href="#writing" data-en="Explore Writings →" data-ta="என் எழுத்துகளைப் படிக்க →">Explore Writings →</a>
+                    <a class="btn btn-secondary" href="#books" data-en="View Books" data-ta="புத்தகங்களைப் பார்க்க">View Books</a>
+                </div>
+            </div>
+
+            <div class="hero-photo-wrapper">
+                <img src="assets/images/ramya-office-portrait.webp" alt="Ramya Vindhisha writing at her desk" width="480" height="600" loading="eager">
+                <div class="photo-badge">
+                    <strong data-en="Bilingual Author" data-ta="இருமொழி எழுத்தாளர்">Bilingual Author</strong>
+                    <span data-en="Essays • Poetry • Reflections" data-ta="கட்டுரைகள் • கவிதைகள் • குறிப்புகள்">Essays • Poetry • Reflections</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote of the Day / Daily Thought Widget -->
+        <section class="section" style="padding-top: 0; padding-bottom: 40px;">
+            <div class="quote-widget" id="quoteWidget">
+                <div class="quote-icon">“</div>
+                <p class="quote-text" id="quoteText">Loading reflection...</p>
+                <div class="quote-controls">
+                    <button class="btn btn-secondary btn-sm" id="newQuoteBtn" data-en="✨ New Reflection" data-ta="✨ புதிய சிந்தனை">✨ New Reflection</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="split-grid">
+                <div>
+                    <span class="eyebrow" data-en="ABOUT ME" data-ta="என்னைப் பற்றி">ABOUT ME</span>
+                    <h2 class="section-title" data-en="I notice. I question. I write." data-ta="நான் கவனிக்கிறேன். கேள்வி கேட்கிறேன். எழுதுகிறேன்.">
+                        I notice. I question. I write.
+                    </h2>
+                </div>
+                <div class="body-text">
+                    <p data-en="Welcome to my little corner of the internet. I am Ramya, a writer who enjoys looking beneath ordinary experiences to discover what they reveal about human connection, emotion, and existence."
+                        data-ta="என் இணைய உலகத்தின் இந்தச் சிறிய மூலைக்கு வரவேற்கிறேன். சாதாரண அனுபவங்களுக்குள் மறைந்திருக்கும் மனிதர்களையும் வாழ்க்கையையும் ஆராய்ந்து எழுத விரும்பும் ரம்யா நான்.">
+                        Welcome to my little corner of the internet. I am Ramya, a writer who enjoys looking beneath ordinary experiences to discover what they reveal about human connection, emotion, and existence.
+                    </p>
+                    <p data-en="Writing in both Tamil and English allows me to bridge two rich literary traditions. Some pieces are reflective essays, some are poetic verses, and others begin simply as a quiet observation that refuses to fade away."
+                        data-ta="நான் தமிழ் மற்றும் ஆங்கிலம் இரண்டிலும் எழுதுகிறேன். சில படைப்புகள் ஆழமான கட்டுரைகள். சில கவிதைகள். சில, மனதை விட்டு அகல மறுக்கும் ஒரு சிறிய எண்ணமாகத் தொடங்குகின்றன.">
+                        Writing in both Tamil and English allows me to bridge two rich literary traditions. Some pieces are reflective essays, some are poetic verses, and others begin simply as a quiet observation that refuses to fade away.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Writing Section with Dynamic Filters -->
+        <section id="writing" class="section">
+            <div class="section-header">
+                <span class="eyebrow" data-en="SELECTED WORKS" data-ta="தேர்ந்தெடுக்கப்பட்ட படைப்புகள்">SELECTED WORKS</span>
+                <h2 class="section-title" data-en="Words left along the way." data-ta="பயணத்தில் விட்டுச் சென்ற வார்த்தைகள்.">Words left along the way.</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-bar" id="writingFilterBar">
+                <button class="filter-btn active" data-filter="all" data-en="All Works" data-ta="அனைத்தும்">All Works</button>
+                <button class="filter-btn" data-filter="essays" data-en="Essays (English)" data-ta="ஆங்கிலக் கட்டுரைகள்">Essays (English)</button>
+                <button class="filter-btn" data-filter="poetry" data-en="Poetry (தமிழ்)" data-ta="தமிழ் கவிதைகள்">Poetry (தமிழ்)</button>
+                <button class="filter-btn" data-filter="notes" data-en="Reflections" data-ta="குறிப்புகள்">Reflections</button>
+            </div>
+
+            <!-- Dynamic Writing Cards Grid -->
+            <div class="cards-grid" id="writingCardsGrid">
+                <!-- Dynamically rendered from content-data.js -->
+            </div>
+        </section>
+
+        <!-- Books Showcase Section -->
+        <section id="books" class="section">
+            <div class="section-header">
+                <span class="eyebrow" data-en="PUBLISHED BOOKS" data-ta="வெளியான புத்தகங்கள்">PUBLISHED BOOKS</span>
+                <h2 class="section-title" data-en="Ideas that became books." data-ta="புத்தகங்களாக மாறிய எண்ணங்கள்.">Ideas that became books.</h2>
+            </div>
+
+            <div class="books-container" id="booksContainer">
+                <!-- Dynamically rendered from content-data.js -->
+            </div>
+        </section>
+
+        <!-- Notes / Reflections Section -->
+        <section id="notes" class="section">
+            <div class="section-header">
+                <span class="eyebrow" data-en="THINGS I NOTICED" data-ta="நான் கவனித்தவை">THINGS I NOTICED</span>
+                <h2 class="section-title" data-en="A place for unexpected thoughts." data-ta="எதிர்பாராமல் வரும் எண்ணங்களுக்கான ஒரு இடம்.">A place for unexpected thoughts.</h2>
+            </div>
+
+            <div class="notes-list" id="notesListContainer">
+                <!-- Dynamically rendered from content-data.js -->
+            </div>
+        </section>
+
+        <!-- Contact & Connect Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <span class="eyebrow" data-en="LET'S CONNECT" data-ta="தொடர்பில் இருப்போம்">LET'S CONNECT</span>
+                <h2 class="section-title" data-en="If something here made you pause, write to me." data-ta="நான் எழுதியது உங்களை ஒரு கணம் நிறுத்தியிருந்தால், எழுதுங்கள்.">
+                    If something here made you pause, write to me.
+                </h2>
+            </div>
+
+            <div class="contact-grid">
+                <div>
+                    <p class="body-text" data-en="Whether you wish to share thoughts on my writing, discuss literary collaborations, or inquire about book readings, my inbox is always open."
+                        data-ta="என் எழுத்துக்கள் பற்றிய உங்கள் கருத்துக்களைப் பகிரவும், இலக்கியக் கலந்துரையாடல்கள் செய்யவும் உங்கள் மடல்களை வரவேற்கிறேன்.">
+                        Whether you wish to share thoughts on my writing, discuss literary collaborations, or inquire about book readings, my inbox is always open.
+                    </p>
+
+                    <div class="social-links">
+                        <a href="mailto:contact@ramyavindhisha.com" class="social-link" title="Email Ramya">📧 Email Me</a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link" title="Instagram">📸 Instagram</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" title="LinkedIn">💼 LinkedIn</a>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName" data-en="Your Name" data-ta="உங்கள் பெயர்">Your Name</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="Jane Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail" data-en="Your Email" data-ta="உங்கள் மின்னஞ்சல்">Your Email</label>
+                        <input type="email" id="contactEmail" class="form-control" placeholder="jane@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject" data-en="Subject / Purpose" data-ta="தலைப்பு / நோக்கம்">Subject / Purpose</label>
+                        <select id="contactSubject" class="form-control">
+                            <option value="General Hello">General Reader Note / வாசகர் மடல்</option>
+                            <option value="Book Inquiry">Book Inquiry / புத்தக விசாரணை</option>
+                            <option value="Literary Collaboration">Literary Collaboration / இலக்கிய கூட்டணி</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage" data-en="Message" data-ta="செய்தி">Message</label>
+                        <textarea id="contactMessage" class="form-control" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="Send Message ✉️" data-ta="செய்தி அனுப்பு ✉️">Send Message ✉️</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <span>© 2026 Ramya Vindhisha. All rights reserved.</span>
+        <span data-en="Written with curiosity & warmth." data-ta="ஆர்வத்துடனும் அன்போடும் எழுதப்பட்டது.">Written with curiosity & warmth.</span>
+    </footer>
+
+    <!-- Interactive Reader Modal Overlay -->
+    <div class="modal-overlay" id="readerModalOverlay">
+        <div class="modal-container" id="readerModalContainer">
+            <div class="modal-header">
+                <div style="font-weight: 600; font-size: 0.9rem; color: var(--accent);" id="modalCategoryTag">ESSAY</div>
+                <div class="modal-actions">
+                    <button class="btn-icon" id="fontSizeDec" title="Decrease Font Size">A-</button>
+                    <button class="btn-icon" id="fontSizeInc" title="Increase Font Size">A+</button>
+                    <button class="btn-icon" id="readAloudBtn" title="Read Aloud (TTS)">🔊</button>
+                    <button class="btn-icon" id="closeModalBtn" title="Close Modal">✕</button>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <h2 id="modalTitle">Article Title</h2>
+                <div class="modal-meta">
+                    <span id="modalDate">September 2026</span>
+                    <span>•</span>
+                    <span id="modalReadTime">4 min read</span>
+                </div>
+                <div class="modal-content" id="modalBodyContent">
+                    <!-- Dynamic Body Text -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/content-data.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
