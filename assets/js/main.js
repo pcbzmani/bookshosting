@@ -294,30 +294,67 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Speech Synthesis Audio Read-Aloud
+    // Speech Synthesis Audio Read-Aloud (Enhanced for Tamil & English)
     if (readAloudBtn) {
         readAloudBtn.addEventListener('click', () => {
             if (!('speechSynthesis' in window)) {
-                showToast('Audio playback not supported in this browser.', '⚠️');
+                showToast(currentLang === 'ta' ? 'உங்கள் உலாவியில் ஒலி வசதி இல்லை.' : 'Audio playback not supported in this browser.', '⚠️');
                 return;
             }
 
             if (window.speechSynthesis.speaking) {
                 window.speechSynthesis.cancel();
-                showToast('Audio playback stopped.', '🔇');
+                showToast(currentLang === 'ta' ? 'ஒலி வாசிப்பு நிறுத்தப்பட்டது.' : 'Audio playback stopped.', '🔇');
                 return;
             }
 
-            const textToRead = `${modalTitle.textContent}. ${modalBodyContent.textContent}`;
-            const utterance = new SpeechSynthesisUtterance(textToRead);
-            utterance.lang = currentLang === 'ta' ? 'ta-IN' : 'en-US';
-            utterance.rate = 0.95;
+            // Extract clean text using innerText to maintain proper pauses between paragraphs
+            const rawText = modalBodyContent.innerText || modalBodyContent.textContent;
+            const cleanedBody = rawText.replace(/\n+/g, '. ');
+            const textToRead = `${modalTitle.textContent}. ${cleanedBody}`;
 
-            utterance.onstart = () => showToast('Playing audio reader...', '🔊');
-            utterance.onend = () => showToast('Finished audio reader.', '✅');
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.rate = 0.88; // Slightly calmer reading speed for better clarity
+            utterance.pitch = 1.0;
+
+            const voices = window.speechSynthesis.getVoices();
+            const isTamil = currentLang === 'ta' || /[\u0B80-\u0BFF]/.test(textToRead);
+
+            if (isTamil) {
+                utterance.lang = 'ta-IN';
+                // Search for installed native Tamil voice engines (Chrome Google தமிழ், MS Valluvar, iOS/Android Tamil)
+                const taVoice = voices.find(v => 
+                    v.lang.toLowerCase().includes('ta') || 
+                    v.name.toLowerCase().includes('tamil') ||
+                    v.name.toLowerCase().includes('valluvar') ||
+                    v.name.toLowerCase().includes('latha')
+                );
+
+                if (taVoice) {
+                    utterance.voice = taVoice;
+                }
+            } else {
+                utterance.lang = 'en-US';
+                const enVoice = voices.find(v => v.lang.startsWith('en'));
+                if (enVoice) utterance.voice = enVoice;
+            }
+
+            utterance.onstart = () => showToast(currentLang === 'ta' ? 'வாசிக்கத் தொடங்குகிறது... 🔊' : 'Playing audio reader... 🔊', '🔊');
+            utterance.onend = () => showToast(currentLang === 'ta' ? 'வாசிப்பு முடிந்தது.' : 'Finished audio reader.', '✅');
+            utterance.onerror = (e) => {
+                console.error('Speech error:', e);
+                showToast(currentLang === 'ta' ? 'ஒலி வாசிப்பில் பிழை ஏற்பட்டது.' : 'Speech playback error.', '⚠️');
+            };
 
             window.speechSynthesis.speak(utterance);
         });
+
+        // Pre-load voices for Chrome / Edge async voice initialization
+        if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
     }
 
     // --- Contact Form Handling ---
