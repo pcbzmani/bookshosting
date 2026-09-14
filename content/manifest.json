@@ -1,9 +1,10 @@
 {
   "writings": [
     "content/writings/essay-1.json",
+    "content/writings/poetry-1.json",
+    "content/writings/poetry-2.json",
     "content/writings/essay-2.json",
-    "content/writings/notes-1.json",
-    "content/writings/poetry-1.json"
+    "content/writings/notes-1.json"
   ],
   "books": [
     "content/books/book-1.json",
