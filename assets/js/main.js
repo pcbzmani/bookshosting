@@ -48,6 +48,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3500);
     }
 
+    // --- Decoupled Content Loader ---
+    async function loadDecoupledContent() {
+        try {
+            const manifestRes = await fetch('content/manifest.json');
+            if (manifestRes.ok) {
+                const manifest = await manifestRes.json();
+                if (manifest.writings && manifest.writings.length) {
+                    const fetchedWritings = await Promise.all(
+                        manifest.writings.map(url => fetch(url).then(r => r.ok ? r.json() : null))
+                    );
+                    const validWritings = fetchedWritings.filter(Boolean);
+                    if (validWritings.length) websiteData.writings = validWritings;
+                }
+                if (manifest.books && manifest.books.length) {
+                    const fetchedBooks = await Promise.all(
+                        manifest.books.map(url => fetch(url).then(r => r.ok ? r.json() : null))
+                    );
+                    const validBooks = fetchedBooks.filter(Boolean);
+                    if (validBooks.length) websiteData.books = validBooks;
+                }
+            }
+        } catch (e) {
+            console.log("Loaded static fallback content");
+        }
+    }
+
     // --- Language Switcher ---
     function setLanguage(lang) {
         currentLang = lang;
@@ -391,7 +417,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Initial Setup Execution ---
     setTheme(currentTheme);
-    setLanguage(currentLang);
+    loadDecoupledContent().then(() => {
+        setLanguage(currentLang);
+    });
 
     // --- Hide Page Preloader ---
     const pagePreloader = document.getElementById('pagePreloader');

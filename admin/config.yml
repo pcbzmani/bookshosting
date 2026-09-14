@@ -14,9 +14,9 @@ collections:
     create: true
     extension: "json"
     format: "json"
-    slug: "{{slug}}"
+    slug: "{{fields.id}}"
     fields:
-      - { label: "Article ID", name: "id", widget: "string", default: "essay-new" }
+      - { label: "Article ID (e.g. poetry-2, essay-3)", name: "id", widget: "string", default: "essay-3" }
       - { label: "Category", name: "category", widget: "select", options: ["essays", "poetry", "notes"] }
       - { label: "Writing Language", name: "lang", widget: "select", options: ["en", "ta", "both"], default: "en" }
       - { label: "Title (English or தமிழ்)", name: "title_en", widget: "string" }
@@ -34,9 +34,9 @@ collections:
     create: true
     extension: "json"
     format: "json"
-    slug: "{{slug}}"
+    slug: "{{fields.id}}"
     fields:
-      - { label: "Book ID", name: "id", widget: "string" }
+      - { label: "Book ID (e.g. book-3)", name: "id", widget: "string", default: "book-3" }
       - { label: "Title (English)", name: "title_en", widget: "string" }
       - { label: "Title (தமிழ்)", name: "title_ta", widget: "string", required: false }
       - { label: "Subtitle", name: "subtitle_en", widget: "string" }
