@@ -1,0 +1,20 @@
+{
+  "id": "book-1",
+  "title_en": "The Extraordinary Side of Ordinary Moments",
+  "title_ta": "சாதாரண தருணங்களின் பிரம்மாண்டமான பக்கம்",
+  "subtitle_en": "Where Everyday Life Meets Deep Thinking",
+  "subtitle_ta": "அன்றாட வாழ்க்கையும் ஆழமான சிந்தனையும் சந்திக்கும் இடம்",
+  "coverImage": "assets/images/Cover_Final.jpg",
+  "tag_en": "ENGLISH ESSAYS",
+  "tag_ta": "ஆங்கிலக் கட்டுரைகள்",
+  "status_en": "Available on Amazon & Bookstores",
+  "status_ta": "அமேசான் மற்றும் புத்தக நிலையங்களில் கிடைக்கிறது",
+  "description_en": "A curated collection of insightful essays exploring the hidden beauty of daily routines, emotional awareness, human relationships, and the art of slowing down in a hyper-connected world.",
+  "description_ta": "அன்றாட வாழ்க்கையின் மறைக்கப்பட்ட அழகையும், உணர்வுப்பூர்வமான விழிப்புணர்வையும், மனித உறவுகளையும், வேகமான இந்த உலகில் அமைதியைக் கண்டடைவதையும் விரிவாகப் பேசும் கட்டுரைகளின் தொகுப்பு.",
+  "pages": "220 Pages",
+  "isbn": "978-0-123456-78-9",
+  "sampleText_en": "\"In a world that measures worth by speed and output, pausing to observe a passing cloud or listening intently to a friend is a quiet act of rebellion. This book is an invitation to that rebellion.\"",
+  "sampleText_ta": "\"வேகத்தையும் உற்பத்தியையும் மட்டுமே அளவுகோலாகக் கொண்ட உலகத்தில், ஒரு மேகத்தைக் கவனிப்பதற்கோ அல்லது நண்பனின் வார்த்தைகளை ஊன்றிக் கேட்பதற்கோ சிறிது நேரம் ஒதுக்குவது ஒரு அமைதியான புரட்சியாகும்.\"",
+  "amazonLink": "https://amzn.in/d/0dFlNepV",
+  "kdpLink": "https://amzn.in/d/0dFlNepV"
+}

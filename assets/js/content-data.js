@@ -48,27 +48,27 @@ const websiteData = {
             id: 'poetry-1',
             category: 'poetry',
             lang: 'ta',
-            title_en: 'Ekanta Nilavu (Solitary Moon) - Selected Verse',
+            title_en: 'ஏகாந்த நிலவு - தேர்ந்தெடுக்கப்பட்ட கவிதைகள்',
             title_ta: 'ஏகாந்த நிலவு - தேர்ந்தெடுக்கப்பட்ட கவிதைகள்',
-            excerpt_en: 'A poetic exploration of quiet solitude, night thoughts, and the inner conversations we have when the world sleeps.',
+            excerpt_en: 'அமைதியான தனிமை, இரவின் சிந்தனைகள் மற்றும் உலகம் உறங்கும் போது நமக்குள்ளேயே நடக்கும் உரையாடல்கள் பற்றிய கவிதைப் பயணம்.',
             excerpt_ta: 'அமைதியான தனிமை, இரவின் சிந்தனைகள் மற்றும் உலகம் உறங்கும் போது நமக்குள்ளேயே நடக்கும் உரையாடல்கள் பற்றிய கவிதைப் பயணம்.',
-            readTime_en: '3 min read',
+            readTime_en: '3 நிமிட வாசிப்பு',
             readTime_ta: '3 நிமிட வாசிப்பு',
             date: 'August 2026',
             content_en: `
-                <h3>Verse I — The Silence of Night</h3>
-                <p>When the noise of the city retreats into shadow,<br>
-                And the stars sit quietly upon the window pane,<br>
-                The heart opens its leather-bound ledger,<br>
-                To read the pages left unwritten by day.</p>
+                <h3>கவிதை I — இரவின் மௌனம்</h3>
+                <p>நகரத்தின் ஆரவாரம் நிழல்களில் ஒடுங்கும் போது,<br>
+                விண்மீன்கள் ஜன்னல் கம்பிகளில் அமைதியாய் அமரும் போது,<br>
+                இதயம் தன் தோலால் மூடப்பட்ட ஏட்டைத் திறக்கிறது,<br>
+                பகலில் எழுதப்படாமல் போன பக்கங்களைப் படிக்க.</p>
                 
-                <h3>Verse II — Unspoken Words</h3>
-                <p>Not every thought requires a voice,<br>
-                Some belong only to the cool breeze,<br>
-                And the moon that listens without judgement,<br>
-                Pouring silver thread over tired eyes.</p>
+                <h3>கவிதை II — பேசாத வார்த்தைகள்</h3>
+                <p>எல்லா எண்ணங்களுக்கும் குரல் தேவையில்லை,<br>
+                சில எண்ணங்கள் தென்றலுக்கு மட்டுமே சொந்தமானவை,<br>
+                தீர்ப்பு ஏதும் சொல்லாமல் கேட்கும் நிலவுக்கு சொந்தமானவை,<br>
+                களைத்த கண்களின் மீது வெள்ளி நூல்களை நெய்யும் நிலவு.</p>
 
-                <blockquote>"In solitude, we do not escape the world—we finally arrive at ourselves."</blockquote>
+                <blockquote>"தனிமையில் நாம் உலகத்திலிருந்து தப்பி ஓடுவதில்லை—இறுதியாக நம்மையே வந்தடைகிறோம்."</blockquote>
             `,
             content_ta: `
                 <h3>கவிதை I — இரவின் மௌனம்</h3>
@@ -108,8 +108,6 @@ const websiteData = {
                 <p>வாழ்க்கையின் பெரிய திருப்புமுனைகளை நாம் எப்போதும் ஆவலுடன் எதிர்பார்க்கிறோம். திரைப்படங்கள் நமக்குச் சொல்வது போல, ஒரு மாற்றம் நிகழ வேண்டுமென்றால் பெரிய பின்னணி இசையோ அல்லது கடல்களைக் கடக்கும் பயணமோ தேவை என்பதில்லை.</p>
                 
                 <p>நீங்கள் வழக்கம் போல விழித்தெழுகிறீர்கள், காபி அருந்துகிறீர்கள், வேலைக்குப் புறப்படுகிறீர்கள். ஆனால் ஏதோ ஒரு சாதாரண செவ்வாய்க்கிழமையில், ஒரு தாமதத்தைக் கண்டு நீங்கள் பதற்றமடைவதில்லை. கோபப்படுவதில்லை. அமைதியாகக் கவனிக்கிறீர்கள்.</p>
-                
-                <p>யாருக்கும் தெரியாமல், உங்களுக்கே தெரியாமல் ஒரு புதிய கோணம் உங்களுக்குள் முளைத்திருக்கிறது. ஆறு மாதங்களுக்கு முன்பு இருந்த மனிதர் நீங்களல்ல.</p>
             `
         },
         {
@@ -144,8 +142,8 @@ const websiteData = {
             coverImage: 'assets/images/Cover_Final.jpg',
             tag_en: 'ENGLISH ESSAYS',
             tag_ta: 'ஆங்கிலக் கட்டுரைகள்',
-            status_en: 'Available on Amazon & Bookstores',
-            status_ta: 'அமேசான் மற்றும் புத்தக நிலையங்களில் கிடைக்கிறது',
+            status_en: 'Available on Amazon',
+            status_ta: 'அமேசானில் கிடைக்கிறது',
             description_en: 'A curated collection of insightful essays exploring the hidden beauty of daily routines, emotional awareness, human relationships, and the art of slowing down in a hyper-connected world.',
             description_ta: 'அன்றாட வாழ்க்கையின் மறைக்கப்பட்ட அழகையும், உணர்வுப்பூர்வமான விழிப்புணர்வையும், மனித உறவுகளையும், வேகமான இந்த உலகில் அமைதியைக் கண்டடைவதையும் விரிவாகப் பேசும் கட்டுரைகளின் தொகுப்பு.',
             pages: '220 Pages',
@@ -156,8 +154,8 @@ const websiteData = {
             sampleText_ta: `
                 "வேகத்தையும் உற்பத்தியையும் மட்டுமே அளவுகோலாகக் கொண்ட உலகத்தில், ஒரு மேகத்தைக் கவனிப்பதற்கோ அல்லது நண்பனின் வார்த்தைகளை ஊன்றிக் கேட்பதற்கோ சிறிது நேரம் ஒதுக்குவது ஒரு அமைதியான புரட்சியாகும்."
             `,
-            amazonLink: 'https://amazon.com',
-            kdpLink: 'https://kdp.amazon.com'
+            amazonLink: 'https://amzn.in/d/0dFlNepV',
+            kdpLink: 'https://amzn.in/d/0dFlNepV'
         },
         {
             id: 'book-2',
@@ -168,20 +166,20 @@ const websiteData = {
             coverImage: 'assets/images/Cover_kdp.jpg',
             tag_en: 'TAMIL POETRY',
             tag_ta: 'தமிழ் கவிதைகள்',
-            status_en: 'Bestseller in Tamil Literature',
-            status_ta: 'தமிழ் இலக்கியத்தில் பெரிதும் பேசப்பட்ட நூல்',
+            status_en: 'Available on Amazon',
+            status_ta: 'அமேசானில் கிடைக்கிறது',
             description_en: 'An evocative anthology of Tamil poems capturing love, nostalgia, urban solitude, nature, and the subtle inner dialogues that shape our personal journeys.',
             description_ta: 'அன்பு, ஏக்கம், நகரத்துத் தனிமை, இயற்கை மற்றும் மனித மனதின் உள்ளுரையாடல்களைக் கவித்துவத்துடன் வெளிப்படுத்தும் தமிழ் கவிதைத் தொகுப்பு.',
             pages: '180 Pages',
             isbn: '978-0-987654-32-1',
             sampleText_en: `
-                "Like the solitary moon that illuminates the quietest hours of night, these verses seek to shine a gentle light upon the places inside us that we rarely show the world."
+                "இரவின் அமைதியான நேரங்களில் வெளிச்சம் தரும் ஏகாந்த நிலவைப் போல, உலகிற்கு நாம் காட்டத் தயங்கும் மனதின் ஆழமான மூலைகளில் இந்தக் கவிதைகள் மெல்லிய ஒளி வீசுகின்றன."
             `,
             sampleText_ta: `
                 "இரவின் அமைதியான நேரங்களில் வெளிச்சம் தரும் ஏகாந்த நிலவைப் போல, உலகிற்கு நாம் காட்டத் தயங்கும் மனதின் ஆழமான மூலைகளில் இந்தக் கவிதைகள் மெல்லிய ஒளி வீசுகின்றன."
             `,
-            amazonLink: 'https://amazon.com',
-            kdpLink: 'https://kdp.amazon.com'
+            amazonLink: 'https://amzn.in/d/0i2PUiZB',
+            kdpLink: 'https://amzn.in/d/0i2PUiZB'
         }
     ],
 
