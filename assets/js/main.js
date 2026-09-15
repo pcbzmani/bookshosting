@@ -48,26 +48,68 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3500);
     }
 
-    // --- Decoupled Content Loader ---
+    // --- Decoupled Content Loader with Cache-Busting & Auto-Discovery ---
     async function loadDecoupledContent() {
+        const timestamp = Date.now();
+        const fetchOptions = { cache: 'no-cache', headers: { 'Cache-Control': 'no-cache' } };
+
         try {
-            const manifestRes = await fetch('content/manifest.json');
-            if (manifestRes.ok) {
-                const manifest = await manifestRes.json();
-                if (manifest.writings && manifest.writings.length) {
-                    const fetchedWritings = await Promise.all(
-                        manifest.writings.map(url => fetch(url).then(r => r.ok ? r.json() : null))
-                    );
-                    const validWritings = fetchedWritings.filter(Boolean);
-                    if (validWritings.length) websiteData.writings = validWritings;
+            const writingsList = [];
+            const booksList = [];
+
+            // 1. Try reading manifest first with cache-busting
+            try {
+                const manifestRes = await fetch(`content/manifest.json?t=${timestamp}`, fetchOptions);
+                if (manifestRes.ok) {
+                    const manifest = await manifestRes.json();
+                    if (manifest.writings) writingsList.push(...manifest.writings);
+                    if (manifest.books) booksList.push(...manifest.books);
                 }
-                if (manifest.books && manifest.books.length) {
-                    const fetchedBooks = await Promise.all(
-                        manifest.books.map(url => fetch(url).then(r => r.ok ? r.json() : null))
-                    );
-                    const validBooks = fetchedBooks.filter(Boolean);
-                    if (validBooks.length) websiteData.books = validBooks;
-                }
+            } catch (e) {}
+
+            // 2. Auto-discover candidate files (poetry-1 to 10, essay-1 to 10, notes-1 to 10, book-1 to 5)
+            const candidateWritings = [
+                'content/writings/essay-1.json',
+                'content/writings/essay-2.json',
+                'content/writings/essay-3.json',
+                'content/writings/essay-4.json',
+                'content/writings/poetry-1.json',
+                'content/writings/poetry-2.json',
+                'content/writings/poetry-3.json',
+                'content/writings/poetry-4.json',
+                'content/writings/poetry-5.json',
+                'content/writings/notes-1.json',
+                'content/writings/notes-2.json',
+                'content/writings/notes-3.json'
+            ];
+
+            const candidateBooks = [
+                'content/books/book-1.json',
+                'content/books/book-2.json',
+                'content/books/book-3.json'
+            ];
+
+            const allWritingUrls = Array.from(new Set([...writingsList, ...candidateWritings]));
+            const allBookUrls = Array.from(new Set([...booksList, ...candidateBooks]));
+
+            const fetchedWritings = await Promise.all(
+                allWritingUrls.map(url => fetch(`${url}?t=${timestamp}`, fetchOptions).then(r => r.ok ? r.json() : null).catch(() => null))
+            );
+            const fetchedBooks = await Promise.all(
+                allBookUrls.map(url => fetch(`${url}?t=${timestamp}`, fetchOptions).then(r => r.ok ? r.json() : null).catch(() => null))
+            );
+
+            const validWritings = fetchedWritings.filter(Boolean);
+            const validBooks = fetchedBooks.filter(Boolean);
+
+            if (validWritings.length) {
+                const uniqueWritings = Array.from(new Map(validWritings.map(item => [item.id || item.title_en, item])).values());
+                websiteData.writings = uniqueWritings;
+            }
+
+            if (validBooks.length) {
+                const uniqueBooks = Array.from(new Map(validBooks.map(item => [item.id || item.title_en, item])).values());
+                websiteData.books = uniqueBooks;
             }
         } catch (e) {
             console.log("Loaded static fallback content");
